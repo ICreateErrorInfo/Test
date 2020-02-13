@@ -5,15 +5,15 @@ using UnityEngine;
 public class CamaraFollow : MonoBehaviour
 {
     public GameObject player;
-    Vector3 unterschied;
+    float unterschied;
 
     private void Start()
     {
-        unterschied = transform.position - player.transform.position;
+        unterschied = transform.position.x - player.transform.position.x;
     }
 
     private void LateUpdate()
     {
-        transform.position = player.transform.position + unterschied;
+        transform.position = new Vector3(player.transform.position.x + unterschied, transform.position.y, transform.position.z);
     }
 }
