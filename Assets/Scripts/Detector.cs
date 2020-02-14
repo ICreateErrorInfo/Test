@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Detector: MonoBehaviour {
 
-    GameObject Player;
+    GameObject _player;
 
     [UsedImplicitly]
     private void Start() {
-        Player = gameObject.transform.parent.gameObject;
+        _player = gameObject.transform.parent.gameObject;
     }
 
     [UsedImplicitly]
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Ground") {
 
-            Player.GetComponent<Spiel>().IsGrounded = true;
+            _player.GetComponent<Spiel>().IsGrounded = true;
 
         }
     }
@@ -24,7 +24,7 @@ public class Detector: MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Ground") {
 
-            Player.GetComponent<Spiel>().IsGrounded = false;
+            _player.GetComponent<Spiel>().IsGrounded = false;
 
         }
     }
