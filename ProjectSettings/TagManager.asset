@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Ziel
   - ItemJump
+  - Spawn
   layers:
   - Default
   - TransparentFX

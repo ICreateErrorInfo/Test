@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spiel: MonoBehaviour {
 
-    public GameObject Spieler;
+    GameObject _spawn;
     public float      Speed;
     public float      JumpForce;
     public bool       IsGrounded;
@@ -14,6 +14,8 @@ public class Spiel: MonoBehaviour {
 
     [UsedImplicitly]
     void Start() {
+        _spawn = GameObject.FindGameObjectWithTag("Spawn");
+        transform.position = _spawn.transform.position;
     }
 
     static class AxisName {
@@ -27,7 +29,7 @@ public class Spiel: MonoBehaviour {
     void Update() {
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis(AxisName.Horizontal), 0, 0);
-        Spieler.transform.position += movement * Time.deltaTime * Speed;
+        transform.position += movement * Time.deltaTime * Speed;
     }
 
     void Jump() {
@@ -39,7 +41,7 @@ public class Spiel: MonoBehaviour {
             }
 
             if (_sprungKontingent > 0) {
-                Spieler.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 _sprungKontingent -= 1;
             }
         }
