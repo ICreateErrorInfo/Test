@@ -10,7 +10,7 @@ public class ItemEntfernen: MonoBehaviour {
 
     [UsedImplicitly]
     private void Update() {
-        if (_insideItem && Input.GetKeyDown(KeyCode.E)) {
+        if (_insideItem && Input.GetKeyDown(Steuerung.Benutzen)) {
             Destroy(Obj);
         }
     }

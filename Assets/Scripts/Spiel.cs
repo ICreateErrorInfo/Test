@@ -18,23 +18,16 @@ public class Spiel: MonoBehaviour {
         transform.position = _spawn.transform.position;
     }
 
-    static class AxisName {
-
-        public const string Horizontal = "Horizontal";
-        public const string Vertical   = "Vertical";
-
-    }
-
     [UsedImplicitly]
     void Update() {
         Jump();
-        Vector3 movement = new Vector3(Input.GetAxis(AxisName.Horizontal), 0, 0);
+        Vector3 movement = new Vector3(Input.GetAxis(Steuerung.Horizontal), 0, 0);
         transform.position += movement * Time.deltaTime * Speed;
     }
 
     void Jump() {
 
-        if (Input.GetButtonDown(AxisName.Vertical)) {
+        if (Input.GetButtonDown(Steuerung.Vertical)) {
 
             if (IsGrounded) {
                 _sprungKontingent = ExtraJump;
