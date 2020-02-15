@@ -1,5 +1,4 @@
 ﻿using JetBrains.Annotations;
-
 using UnityEngine;
 
 public class Spiel: MonoBehaviour {
@@ -9,7 +8,6 @@ public class Spiel: MonoBehaviour {
     public float      JumpForce;
     public bool       IsGrounded;
     public int        ExtraJump = 1;
-
     int _sprungKontingent;
 
     [UsedImplicitly]

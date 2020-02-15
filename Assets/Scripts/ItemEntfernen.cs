@@ -10,8 +10,9 @@ public class ItemEntfernen: MonoBehaviour {
 
     [UsedImplicitly]
     private void Update() {
-        if (_insideItem && Input.GetKeyDown(Steuerung.Benutzen)) {
+        if (_insideItem && Input.GetButtonDown(Steuerung.Benutzen)) {
             Destroy(Obj);
+            gameObject.SetActive(false);
         }
     }
 

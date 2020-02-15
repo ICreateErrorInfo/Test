@@ -1,11 +1,12 @@
 ﻿using JetBrains.Annotations;
-
 using UnityEngine;
+using TMPro;
 
 public class ItemJump : MonoBehaviour
 {
     GameObject _player;
     public int ExtraJump;
+    public TextMeshProUGUI JumpText;
 
     [UsedImplicitly]
     private void Start() {
@@ -17,6 +18,8 @@ public class ItemJump : MonoBehaviour
     {
         if (collision.gameObject.tag ==_player.tag) {
             _player.GetComponent<Spiel>().ExtraJump = ExtraJump;
+            JumpText.text = $"Jumps: {ExtraJump}";
+            gameObject.SetActive(false);
         }
     }
 }
