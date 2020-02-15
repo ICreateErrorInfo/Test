@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class Spiel: MonoBehaviour {
 
-    GameObject _spawn;
-    public float      Speed;
-    public float      JumpForce;
-    public bool       IsGrounded;
-    public int        ExtraJump = 1;
-    int _sprungKontingent;
+    GameObject   _spawn;
+    public float Speed;
+    public float JumpForce;
+    public bool  IsGrounded;
+    public int   ExtraJump = 1;
+    int          _sprungKontingent;
 
     [UsedImplicitly]
     void Start() {
-        _spawn = GameObject.FindGameObjectWithTag(TagNames.Spawn);
+        _spawn             = GameObject.FindGameObjectWithTag(TagNames.Spawn);
         transform.position = _spawn.transform.position;
     }
 
@@ -37,5 +37,4 @@ public class Spiel: MonoBehaviour {
             }
         }
     }
-
 }
