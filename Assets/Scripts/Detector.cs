@@ -13,7 +13,7 @@ public class Detector: MonoBehaviour {
 
     [UsedImplicitly]
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Ground") {
+        if (collision.tag == TagNames.Ground) {
 
             _player.GetComponent<Spiel>().IsGrounded = true;
 
@@ -22,7 +22,7 @@ public class Detector: MonoBehaviour {
 
     [UsedImplicitly]
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag == "Ground") {
+        if (collision.tag == TagNames.Ground) {
 
             _player.GetComponent<Spiel>().IsGrounded = false;
 

@@ -14,7 +14,7 @@ public class Spiel: MonoBehaviour {
 
     [UsedImplicitly]
     void Start() {
-        _spawn = GameObject.FindGameObjectWithTag("Spawn");
+        _spawn = GameObject.FindGameObjectWithTag(TagNames.Spawn);
         transform.position = _spawn.transform.position;
     }
 

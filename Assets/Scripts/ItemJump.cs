@@ -9,7 +9,7 @@ public class ItemJump : MonoBehaviour
 
     [UsedImplicitly]
     private void Start() {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag(TagNames.Player);
     }
 
     [UsedImplicitly]

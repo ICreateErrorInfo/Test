@@ -17,14 +17,14 @@ public class ItemEntfernen: MonoBehaviour {
 
     [UsedImplicitly]
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Player") {
+        if (collision.tag == TagNames.Player) {
             _insideItem = true;
         }
     }
 
     [UsedImplicitly]
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag == "Player") {
+        if (collision.tag == TagNames.Player) {
             _insideItem = false;
         }
     }

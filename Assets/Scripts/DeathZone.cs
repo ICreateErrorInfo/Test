@@ -12,8 +12,8 @@ public class DeathZone : MonoBehaviour {
 
     [UsedImplicitly]
     private void Start() {
-        _spawn = GameObject.FindGameObjectWithTag("Spawn");
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _spawn = GameObject.FindGameObjectWithTag(TagNames.Spawn);
+        _player = GameObject.FindGameObjectWithTag(TagNames.Player);
     }
 
     [UsedImplicitly]
@@ -25,7 +25,7 @@ public class DeathZone : MonoBehaviour {
     [UsedImplicitly]
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") {
+        if (collision.tag == TagNames.Player) {
 
             _player.transform.position = _spawn.transform.position;
 
