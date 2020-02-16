@@ -10,4 +10,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void OnOptionButton() {
+        SceneManager.LoadScene(SceneNames.OptionScene);
+    }
+
+    public void OnQuitButton() {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
+
 }
