@@ -202,7 +202,6 @@ GameObject:
   - component: {fileID: 22987275}
   - component: {fileID: 22987277}
   - component: {fileID: 22987276}
-  - component: {fileID: 22987278}
   m_Layer: 5
   m_Name: LebenAnzeige
   m_TagString: Untagged
@@ -347,19 +346,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22987274}
   m_CullTransparentMesh: 0
---- !u!114 &22987278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22987274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65c8d2771af892418b61437e06be9a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LebenText: {fileID: 22987276}
 --- !u!1 &137696207
 GameObject:
   m_ObjectHideFlags: 0
