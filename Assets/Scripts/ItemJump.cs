@@ -18,7 +18,7 @@ public class ItemJump : MonoBehaviour
     {
         if (collision.gameObject.tag ==_player.tag) {
             _player.GetComponent<PlayerControllre>().ExtraJump = ExtraJump;
-            JumpText.text = $"Jumps: {ExtraJump}";
+            Stats.Instance.Jumps = ExtraJump;
             gameObject.SetActive(false);
         }
     }

@@ -20,11 +20,6 @@ public class PauseMenu : MonoBehaviour
             } else {
                 Pause();
             }
-
-            //if (EText.gameObject.SetActive(true)) {
-            //    EText.gameObject.SetActive(false);
-            //}
-
         }
     }
 
