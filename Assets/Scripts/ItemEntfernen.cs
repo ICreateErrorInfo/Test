@@ -24,7 +24,7 @@ public class ItemEntfernen: MonoBehaviour {
             Debug.Log(_timer);
         }
 
-        if (_timer >= 100) {
+        if (_timer >= 100 && Time.timeScale > 0) {
             EText.gameObject.SetActive(true);
 
             //  EText.text = "Press E";
