@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void OnPlayButton() {
-        SceneManager.LoadScene(SceneNames.Level1); 
-
+        SceneManager.LoadScene(SceneNames.Level1);
+        Stats.Instance.Reset();
     }
 
     public void OnOptionButton() {
