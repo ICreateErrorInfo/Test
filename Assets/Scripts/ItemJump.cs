@@ -17,7 +17,7 @@ public class ItemJump : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag ==_player.tag) {
-            _player.GetComponent<Spiel>().ExtraJump = ExtraJump;
+            _player.GetComponent<PlayerControllre>().ExtraJump = ExtraJump;
             JumpText.text = $"Jumps: {ExtraJump}";
             gameObject.SetActive(false);
         }

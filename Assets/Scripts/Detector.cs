@@ -15,7 +15,7 @@ public class Detector: MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == TagNames.Ground) {
 
-            _player.GetComponent<Spiel>().IsGrounded = true;
+            _player.GetComponent<PlayerControllre>().IsGrounded = true;
 
         }
     }
@@ -24,7 +24,7 @@ public class Detector: MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == TagNames.Ground) {
 
-            _player.GetComponent<Spiel>().IsGrounded = false;
+            _player.GetComponent<PlayerControllre>().IsGrounded = false;
 
         }
     }

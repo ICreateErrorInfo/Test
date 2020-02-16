@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 
-public class Spiel: MonoBehaviour {
+public class PlayerControllre: MonoBehaviour {
 
     GameObject   _spawn;
     public float Speed;
@@ -21,6 +21,7 @@ public class Spiel: MonoBehaviour {
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis(Steuerung.Horizontal), 0, 0);
         transform.position += movement * Time.deltaTime * Speed;
+
     }
 
     void Jump() {
