@@ -1,9 +1,2 @@
 # Test
-My Test
-
- sadf jklö
-
-
- asdf
-
- asdfas
+Out first unity game.
