@@ -23,7 +23,7 @@ public class DeathZone : MonoBehaviour {
     {
         if (collision.tag == TagNames.Player) {
 
-            Stats.Instance.Leben -= 1;
+            Stats.Instance.Health -= 25;
             _player.transform.position = _spawn.transform.position;
 
         }

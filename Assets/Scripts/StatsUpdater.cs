@@ -1,16 +1,19 @@
 ﻿using System;
-
 using JetBrains.Annotations;
-
 using UnityEngine;
-
+using UnityEngine.UI;
 using TMPro;
 
 public class StatsUpdater: MonoBehaviour {
 
     public TextMeshProUGUI SauerstoffText;
-    public TextMeshProUGUI LebenText;
     public TextMeshProUGUI JumpText;
+    public Slider slider;
+
+    private void Update()
+    {
+        SetHealth(Stats.Instance.Health);
+    }
 
     [UsedImplicitly]
     private void LateUpdate() {
@@ -18,7 +21,6 @@ public class StatsUpdater: MonoBehaviour {
         Stats.Instance.GameTime += Time.deltaTime;
         Stats.Instance.Sauerstoff = (int) Math.Floor(Stats.Instance.MaxSauerstoff * (1 - Stats.Instance.PercentageTimeUsed));
 
-        LebenText.text      = $"Leben: {Stats.Instance.Leben}";
         SauerstoffText.text = $"Sauerstoff: {Stats.Instance.Sauerstoff}";
         JumpText.text       = $"Jumps: {Stats.Instance.Jumps}";
 
@@ -28,6 +30,17 @@ public class StatsUpdater: MonoBehaviour {
             // Game Over!!
         }
 
+    }
+
+    public void SetMaxHealth(int Health)
+    {
+        slider.maxValue = Health;
+        slider.value = Health;
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
     }
 
 }
