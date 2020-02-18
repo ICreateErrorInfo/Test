@@ -18,6 +18,15 @@ public class PlayerControllre: MonoBehaviour {
 
     [UsedImplicitly]
     void Update() {
+
+        if (Input.GetAxis(Steuerung.Horizontal) < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (Input.GetAxis(Steuerung.Horizontal) > 0){
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis(Steuerung.Horizontal), 0, 0);
         transform.position += movement * Time.deltaTime * Speed;
