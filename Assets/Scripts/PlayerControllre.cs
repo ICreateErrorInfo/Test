@@ -33,18 +33,30 @@ public class PlayerControllre: MonoBehaviour {
 
     }
 
-    void Jump() {
+    void Jump()
+    {
 
-        if (Input.GetButtonDown(Steuerung.Vertical)) {
+        if (Input.GetButtonDown(Steuerung.Vertical))
+        {
 
-            if (IsGrounded) {
+            if (IsGrounded)
+            {
                 _sprungKontingent = ExtraJump;
             }
 
-            if (_sprungKontingent > 0) {
+            if (_sprungKontingent > 0)
+            {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 _sprungKontingent -= 1;
             }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == TagNames.Gefahr)
+        {
+            Stats.Instance.Health -= 50;
+            transform.position = _spawn.transform.position;
         }
     }
 }

@@ -5,5 +5,6 @@
     public const string Ziel     = "Ziel";
     public const string ItemJump = "ItemJump";
     public const string Spawn    = "Spawn";
+    public const string Gefahr = "Gefahr";
 
 }
