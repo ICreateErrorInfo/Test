@@ -704,7 +704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -114.599945, y: -11.899994}
+  m_AnchoredPosition: {x: -114.599976, y: -11.899963}
   m_SizeDelta: {x: 229.2, y: 23.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401714680
@@ -2029,7 +2029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279650940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.76, y: -2.84, z: 0}
+  m_LocalPosition: {x: 3.76, y: 3.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3105,7 +3105,7 @@ GameObject:
   - component: {fileID: 1799960751}
   m_Layer: 0
   m_Name: ItemEntferner
-  m_TagString: ItemJump
+  m_TagString: Item Entferner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3123,6 +3123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obj: {fileID: 1765658441}
+  _timer: 0
+  _insideItem: 0
   EText: {fileID: 846931383}
 --- !u!61 &1799960752
 BoxCollider2D:
@@ -3740,7 +3742,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4011,3 +4013,5 @@ MonoBehaviour:
   Speed: 7
   JumpForce: 7
   IsGrounded: 0
+  hitTime: 200
+  GefahrenDamage: 25

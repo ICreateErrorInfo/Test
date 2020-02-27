@@ -6,17 +6,26 @@ public class PlayerControllre: MonoBehaviour {
     GameObject   _spawn;
     public float Speed;
     public float JumpForce;
+    [HideInInspector]
     public bool  IsGrounded;
     int          _sprungKontingent;
     private GameObject ItemJump;
     GameObject ItemEntferner;
+    GameObject Gefahr;
+    int colTimer;
+    bool GefahrenCol;
+    public int hitTime;
+    int saveHitTime;
+    public int GefahrenDamage;
 
     [UsedImplicitly]
     void Start() {
         ItemEntferner = GameObject.FindGameObjectWithTag(TagNames.ItemEnt);
         ItemJump = GameObject.FindGameObjectWithTag(TagNames.ItemJump);
         _spawn             = GameObject.FindGameObjectWithTag(TagNames.Spawn);
+        Gefahr = GameObject.FindGameObjectWithTag(TagNames.Gefahr);
         transform.position = _spawn.transform.position;
+        saveHitTime = hitTime;
     }
 
     [UsedImplicitly]
@@ -28,6 +37,17 @@ public class PlayerControllre: MonoBehaviour {
         }
         else if (Input.GetAxis(Steuerung.Horizontal) > 0){
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        if (GefahrenCol)
+        {
+            colTimer += 1;
+        }
+
+        if(colTimer == hitTime)
+        {
+            Stats.Instance.Health -= GefahrenDamage;
+            hitTime += saveHitTime;
         }
 
         Jump();
@@ -56,11 +76,6 @@ public class PlayerControllre: MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == TagNames.Gefahr)
-        {
-            Stats.Instance.Health -= 50;
-            transform.position = _spawn.transform.position;
-        }
         if (collision.tag == TagNames.DeathZone)
         {
 
@@ -86,6 +101,24 @@ public class PlayerControllre: MonoBehaviour {
             ItemEntferner.GetComponent<ItemEntfernen>()._insideItem = false;
             ItemEntferner.GetComponent<ItemEntfernen>().EText.gameObject.SetActive(false);
             ItemEntferner.GetComponent<ItemEntfernen>()._timer = 0;
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == TagNames.Gefahr)
+        {
+            Gefahr.GetComponent<Gefahren>().enabled = false;
+            Stats.Instance.Health -= GefahrenDamage;
+            GefahrenCol = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == TagNames.Gefahr)
+        {
+            GefahrenCol = false;
+            Gefahr.GetComponent<Gefahren>().enabled = true;
         }
     }
 

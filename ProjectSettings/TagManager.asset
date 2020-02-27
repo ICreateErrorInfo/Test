@@ -10,6 +10,7 @@ TagManager:
   - Spawn
   - Gefahr
   - Death Zone
+  - Item Entferner
   layers:
   - Default
   - TransparentFX
