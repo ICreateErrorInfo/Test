@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
     [UsedImplicitly]
     void Update()
     {
+        //Wenn der button gedrückt wird das pausemenu aufgerufen 
+        // oder das spiel weitergespielt
         if (Input.GetButtonDown(Steuerung.Cancel)) {
 
             if (GameIsPaused) {
@@ -25,6 +27,7 @@ public class PauseMenu : MonoBehaviour
 
     private bool _reshowEtext;
 
+    //läst das Pausemenu erseinen
     void Pause() {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -34,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         EText.gameObject.SetActive(false);
     }
 
+    //Läst das pausemenu verschwinden
     void Resume() { 
 
         PauseMenuUI.SetActive(false);
@@ -46,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    //Button actionen
     public void OnResumeButton() {
         Resume();
     }

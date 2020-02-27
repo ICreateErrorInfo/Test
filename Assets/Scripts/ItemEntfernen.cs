@@ -15,21 +15,24 @@ public class ItemEntfernen: MonoBehaviour {
 
     [UsedImplicitly]
     private void Update() {
+        //prüft ob der spieler im Item ist
+        // und zerstört die barikade bei Tastendruck
         if (_insideItem && Input.GetButtonDown(Steuerung.Benutzen)) {
             Destroy(Obj);
             gameObject.SetActive(false);
             EText.gameObject.SetActive(false);
         }
 
+        // Läst den Timer hochzählen
         if (_insideItem) {
             _timer += 1;
             Debug.Log(_timer);
         }
 
+        //läst den Text anzeigen wenn timer größer ist als 100
+        // und wenn das spiel nicht pausiert ist
         if (_timer >= 100 && Time.timeScale > 0) {
             EText.gameObject.SetActive(true);
-
-            //  EText.text = "Press E";
         }
     }
 

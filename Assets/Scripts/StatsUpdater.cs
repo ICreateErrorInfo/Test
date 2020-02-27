@@ -18,9 +18,11 @@ public class StatsUpdater: MonoBehaviour {
     [UsedImplicitly]
     private void LateUpdate() {
 
+        //Timer
         Stats.Instance.GameTime += Time.deltaTime;
         Stats.Instance.Sauerstoff = (int) Math.Floor(Stats.Instance.MaxSauerstoff * (1 - Stats.Instance.PercentageTimeUsed));
 
+        //setst den Text
         SauerstoffText.text = $"Sauerstoff: {Stats.Instance.Sauerstoff}";
         JumpText.text       = $"Jumps: {Stats.Instance.Jumps}";
 
