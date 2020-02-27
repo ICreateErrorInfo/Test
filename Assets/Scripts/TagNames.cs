@@ -6,5 +6,7 @@
     public const string ItemJump = "ItemJump";
     public const string Spawn    = "Spawn";
     public const string Gefahr = "Gefahr";
+    public const string DeathZone = "Death Zone";
+    public const string ItemEnt = "Item Entferner";
 
 }

@@ -7,8 +7,10 @@ using UnityEngine;
 public class ItemEntfernen: MonoBehaviour {
 
     public  GameObject      Obj;
-    private int             _timer;
-    private bool            _insideItem;
+    [HideInInspector]
+    public int             _timer;
+    [HideInInspector]
+    public bool            _insideItem;
     public  TextMeshProUGUI EText;
 
     [UsedImplicitly]
@@ -28,23 +30,6 @@ public class ItemEntfernen: MonoBehaviour {
             EText.gameObject.SetActive(true);
 
             //  EText.text = "Press E";
-        }
-    }
-
-    [UsedImplicitly]
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == TagNames.Player) {
-            _insideItem = true;
-
-        }
-    }
-
-    [UsedImplicitly]
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag == TagNames.Player) {
-            _insideItem = false;
-            EText.gameObject.SetActive(false);
-            _timer = 0;
         }
     }
 

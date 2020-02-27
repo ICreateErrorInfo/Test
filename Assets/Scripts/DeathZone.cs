@@ -17,15 +17,4 @@ public class DeathZone : MonoBehaviour {
     {
         transform.position = new Vector3(_player.transform.position.x, transform.position.y,transform.position.z);
     }
-
-    [UsedImplicitly]
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == TagNames.Player) {
-
-            Stats.Instance.Health -= 25;
-            _player.transform.position = _spawn.transform.position;
-
-        }
-    }
 }

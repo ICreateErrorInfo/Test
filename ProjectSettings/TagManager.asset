@@ -9,6 +9,7 @@ TagManager:
   - ItemJump
   - Spawn
   - Gefahr
+  - Death Zone
   layers:
   - Default
   - TransparentFX
