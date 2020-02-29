@@ -26,6 +26,7 @@
         MaxGameTime = 3 * 60;
         GameTime    = 0;
         Health = 100;
+
     }
 
 }

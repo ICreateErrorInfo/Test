@@ -9,6 +9,7 @@ public class StatsUpdater: MonoBehaviour {
     public TextMeshProUGUI SauerstoffText;
     public TextMeshProUGUI JumpText;
     public Slider Slider;
+    public GameObject GameOverScript;
 
     [UsedImplicitly]
     private void Update()
@@ -30,7 +31,7 @@ public class StatsUpdater: MonoBehaviour {
         
 
         if (Stats.Instance.GameTime >= Stats.Instance.MaxGameTime) {
-            PlayerControllre.Death();
+            GameOverScript.GetComponent<GameOver>().Death();
         }
 
     }

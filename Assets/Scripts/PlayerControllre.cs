@@ -1,6 +1,5 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerControllre: MonoBehaviour {
 
@@ -18,6 +17,7 @@ public class PlayerControllre: MonoBehaviour {
     public int HitTime;
     int _saveHitTime;
     public int GefahrenDamage;
+    public GameObject GameOverScript;
 
     [UsedImplicitly]
     void Start() {
@@ -58,7 +58,7 @@ public class PlayerControllre: MonoBehaviour {
 
         //Wird aufgerufen wenn der spieler kein Leben mehr hat
         if(Stats.Instance.Health <= 0) {
-            Death();
+            GameOverScript.GetComponent<GameOver>().Death();
         }
 
         //läst den Spieler bewegen
@@ -95,7 +95,7 @@ public class PlayerControllre: MonoBehaviour {
         if (collision.tag == TagNames.DeathZone)
         {
 
-            Stats.Instance.Health -= 25;
+            Stats.Instance.Health -= 50;
             transform.position = _spawn.transform.position;
 
         }
@@ -139,12 +139,6 @@ public class PlayerControllre: MonoBehaviour {
             _gefahrenCol = false;
             _gefahr.GetComponent<Gefahren>().enabled = true;
         }
-    }
-
-    public static void Death() {
-
-        Time.timeScale = 0;
-
     }
 
 }
