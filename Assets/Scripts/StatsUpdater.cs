@@ -8,8 +8,9 @@ public class StatsUpdater: MonoBehaviour {
 
     public TextMeshProUGUI SauerstoffText;
     public TextMeshProUGUI JumpText;
-    public Slider slider;
+    public Slider Slider;
 
+    [UsedImplicitly]
     private void Update()
     {
         SetHealth(Stats.Instance.Health);
@@ -29,20 +30,20 @@ public class StatsUpdater: MonoBehaviour {
         
 
         if (Stats.Instance.GameTime >= Stats.Instance.MaxGameTime) {
-            // Game Over!!
+            PlayerControllre.Death();
         }
 
     }
 
-    public void SetMaxHealth(int Health)
+    public void SetMaxHealth(int health)
     {
-        slider.maxValue = Health;
-        slider.value = Health;
+        Slider.maxValue = health;
+        Slider.value = health;
     }
 
     public void SetHealth(int health)
     {
-        slider.value = health;
+        Slider.value = health;
     }
 
 }

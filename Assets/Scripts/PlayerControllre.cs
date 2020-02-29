@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllre: MonoBehaviour {
 
@@ -9,24 +10,24 @@ public class PlayerControllre: MonoBehaviour {
     [HideInInspector]
     public bool  IsGrounded;
     int          _sprungKontingent;
-    private GameObject ItemJump;
-    GameObject ItemEntferner;
-    GameObject Gefahr;
-    int colTimer;
-    bool GefahrenCol;
-    public int hitTime;
-    int saveHitTime;
+    private GameObject _itemJump;
+    GameObject _itemEntferner;
+    GameObject _gefahr;
+    int _colTimer;
+    bool _gefahrenCol;
+    public int HitTime;
+    int _saveHitTime;
     public int GefahrenDamage;
 
     [UsedImplicitly]
     void Start() {
         // Variablen werden initialisiert
-        ItemEntferner = GameObject.FindGameObjectWithTag(TagNames.ItemEnt);
-        ItemJump = GameObject.FindGameObjectWithTag(TagNames.ItemJump);
+        _itemEntferner = GameObject.FindGameObjectWithTag(TagNames.ItemEnt);
+        _itemJump = GameObject.FindGameObjectWithTag(TagNames.ItemJump);
         _spawn             = GameObject.FindGameObjectWithTag(TagNames.Spawn);
-        Gefahr = GameObject.FindGameObjectWithTag(TagNames.Gefahr);
+        _gefahr = GameObject.FindGameObjectWithTag(TagNames.Gefahr);
         transform.position = _spawn.transform.position;
-        saveHitTime = hitTime;
+        _saveHitTime = HitTime;
     }
 
     [UsedImplicitly]
@@ -43,25 +44,24 @@ public class PlayerControllre: MonoBehaviour {
         }
 
         // der timer wird jeden frame um eins größer
-        if (GefahrenCol)
+        if (_gefahrenCol)
         {
-            colTimer += 1;
+            _colTimer += 1;
         }
 
         // Wird leben in einer bestimmten zeit abgezogen
-        if(colTimer == hitTime)
+        if(_colTimer == HitTime)
         {
             Stats.Instance.Health -= GefahrenDamage;
-            hitTime += saveHitTime;
+            HitTime += _saveHitTime;
         }
 
         //Wird aufgerufen wenn der spieler kein Leben mehr hat
-        if(Stats.Instance.Health <= 5)
-        {
-            Time.timeScale = 0;
+        if(Stats.Instance.Health <= 0) {
+            Death();
         }
 
-        //läst den Spiler bewegen
+        //läst den Spieler bewegen
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis(Steuerung.Horizontal), 0, 0);
         transform.position += movement * Time.deltaTime * Speed;
@@ -88,6 +88,7 @@ public class PlayerControllre: MonoBehaviour {
     }
 
     // wenn etwas mit dem tag berührt wird wird das ausgeführt
+    [UsedImplicitly]
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -101,40 +102,49 @@ public class PlayerControllre: MonoBehaviour {
         if (collision.gameObject.tag == TagNames.ItemJump)
         {
             Stats.Instance.Jumps = 3;
-            ItemJump.SetActive(false);
+            _itemJump.SetActive(false);
         }
         if (collision.tag == TagNames.ItemEnt)
         {
-            ItemEntferner.GetComponent<ItemEntfernen>()._insideItem = true;
+            _itemEntferner.GetComponent<ItemEntfernen>()._insideItem = true;
 
         }
     }
+    [UsedImplicitly]
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == TagNames.ItemEnt)
         {
-            ItemEntferner.GetComponent<ItemEntfernen>()._insideItem = false;
-            ItemEntferner.GetComponent<ItemEntfernen>().EText.gameObject.SetActive(false);
-            ItemEntferner.GetComponent<ItemEntfernen>()._timer = 0;
+            _itemEntferner.GetComponent<ItemEntfernen>()._insideItem = false;
+            _itemEntferner.GetComponent<ItemEntfernen>().EText.gameObject.SetActive(false);
+            _itemEntferner.GetComponent<ItemEntfernen>()._timer = 0;
         }
 
     }
+    [UsedImplicitly]
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == TagNames.Gefahr)
         {
-            Gefahr.GetComponent<Gefahren>().enabled = false;
+            _gefahr.GetComponent<Gefahren>().enabled = false;
             Stats.Instance.Health -= GefahrenDamage;
-            GefahrenCol = true;
+            _gefahrenCol = true;
         }
     }
+    [UsedImplicitly]
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == TagNames.Gefahr)
         {
-            GefahrenCol = false;
-            Gefahr.GetComponent<Gefahren>().enabled = true;
+            _gefahrenCol = false;
+            _gefahr.GetComponent<Gefahren>().enabled = true;
         }
+    }
+
+    public static void Death() {
+
+        Time.timeScale = 0;
+
     }
 
 }

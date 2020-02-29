@@ -1105,7 +1105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.552941, y: 0.090001106, z: -10}
+  m_LocalPosition: {x: 12.552862, y: 0.090001106, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1360,7 +1360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562101629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.552941, y: 0.090001106, z: -10}
+  m_LocalPosition: {x: 12.552862, y: 0.090001106, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1887895609}
@@ -2386,7 +2386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SauerstoffText: {fileID: 1508459556}
   JumpText: {fileID: 401714680}
-  slider: {fileID: 1347683521}
+  Slider: {fileID: 1347683521}
 --- !u!1 &1508459554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,5 +4013,5 @@ MonoBehaviour:
   Speed: 7
   JumpForce: 7
   IsGrounded: 0
-  hitTime: 200
+  HitTime: 200
   GefahrenDamage: 25
