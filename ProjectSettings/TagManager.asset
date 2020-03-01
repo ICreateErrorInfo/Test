@@ -11,6 +11,7 @@ TagManager:
   - Gefahr
   - Death Zone
   - Item Entferner
+  - Barikade
   layers:
   - Default
   - TransparentFX
