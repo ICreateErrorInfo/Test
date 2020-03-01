@@ -14,6 +14,9 @@ public class Stats {
     public static float  DefaultGameTime      => 0;
     public static int    DefaultHealth        => 100;
     public static string DefaultLevel         => SceneNames.Level1;
+    public static bool DefaultBarikadeIsShown => true;
+    public static bool DefaultJumpItemIsShown => true;
+    public static bool DefaultEntfernerItemIsShown => true;
 
     public int     Sauerstoff    { get; set; }
     public int     MaxSauerstoff { get; set; }
@@ -22,8 +25,11 @@ public class Stats {
     public float   MaxGameTime   { get; set; }
     public float   GameTime      { get; set; }
     public int     Health        { get; set; }
+    public bool BarikadeIsShown  { get; set; }
     public Vector3 StartPos      { get; set; }
     public string  Level         { get; set; }
+    public bool JumpItemIsShown  { get; set; }
+    public bool EntfernerItemIsShown { get; set; }
 
     public float PercentageTimeUsed => GameTime / MaxGameTime;
 
@@ -39,6 +45,9 @@ public class Stats {
         GameTime      = DefaultGameTime;
         Health        = DefaultHealth;
         Level         = DefaultLevel;
+        BarikadeIsShown = DefaultBarikadeIsShown;
+        JumpItemIsShown = DefaultJumpItemIsShown;
+        EntfernerItemIsShown = DefaultJumpItemIsShown;
 
     }
 
@@ -49,6 +58,9 @@ public class Stats {
         Gemes      = PlayerPrefs.GetInt(nameof(Gemes), DefaultGemes);
         Jumps      = PlayerPrefs.GetInt(nameof(Jumps), DefaultJumps);
         GameTime   = PlayerPrefs.GetFloat(nameof(GameTime), DefaultGameTime);
+        BarikadeIsShown = (PlayerPrefs.GetInt(nameof(BarikadeIsShown), 0) != 0);
+        JumpItemIsShown = (PlayerPrefs.GetInt(nameof(JumpItemIsShown), 0) != 0);
+        EntfernerItemIsShown = (PlayerPrefs.GetInt(nameof(EntfernerItemIsShown), 0) != 0);
 
     }
 
@@ -59,6 +71,9 @@ public class Stats {
         PlayerPrefs.SetInt(nameof(Gemes), Gemes);
         PlayerPrefs.SetInt(nameof(Jumps), Jumps);
         PlayerPrefs.SetFloat(nameof(GameTime), GameTime);
+        PlayerPrefs.SetInt(nameof(BarikadeIsShown), (BarikadeIsShown ? 1 : 0));
+        PlayerPrefs.SetInt(nameof(JumpItemIsShown), (JumpItemIsShown ? 1 : 0));
+        PlayerPrefs.SetInt(nameof(EntfernerItemIsShown), (EntfernerItemIsShown ? 1 : 0));
         PlayerPrefs.Save();
     }
 

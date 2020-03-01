@@ -18,8 +18,10 @@ public class ItemEntfernen: MonoBehaviour {
         //prüft ob der spieler im Item ist
         // und zerstört die barikade bei Tastendruck
         if (_insideItem && Input.GetButtonDown(Steuerung.Benutzen)) {
-            Destroy(Obj);
+            Obj.SetActive(false);
+            Stats.Instance.BarikadeIsShown = false;
             gameObject.SetActive(false);
+            Stats.Instance.EntfernerItemIsShown = false;
             EText.gameObject.SetActive(false);
         }
 

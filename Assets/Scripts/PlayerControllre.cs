@@ -108,6 +108,7 @@ public class PlayerControllre: MonoBehaviour {
         if (collision.gameObject.tag == TagNames.ItemJump)
         {
             Stats.Instance.Jumps = 3;
+            Stats.Instance.JumpItemIsShown = false;
             _itemJump.SetActive(false);
         }
         if (collision.tag == TagNames.ItemEnt)

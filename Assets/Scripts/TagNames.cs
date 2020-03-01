@@ -8,5 +8,6 @@
     public const string Gefahr = "Gefahr";
     public const string DeathZone = "Death Zone";
     public const string ItemEnt = "Item Entferner";
+    public const string Barikade = "Barikade";
 
 }
