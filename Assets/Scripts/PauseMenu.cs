@@ -52,14 +52,17 @@ public class PauseMenu : MonoBehaviour
 
     //Button actionen
     public void OnResumeButton() {
+        Stats.Instance.Save();
         Resume();
     }
 
     public void OnOptionButton() {
+        Stats.Instance.Save();
         SceneManager.LoadScene(SceneNames.OptionScene);
     }
 
     public void OnMainMenuButton() {
+        Stats.Instance.Save();
         SceneManager.LoadScene(SceneNames.MainMenu);
         Resume();
     }

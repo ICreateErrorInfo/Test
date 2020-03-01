@@ -4,8 +4,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     // Button actionen
-    public void OnPlayButton() {
+    public void OnLoadGameButton() {
         SceneManager.LoadScene(SceneNames.Level1);
+        Time.timeScale = 1;
+        Stats.Instance.Load();
+    }
+
+    public void OnNewGameButton() {
+        SceneManager.LoadScene(Stats.Instance.Level);
+        Time.timeScale = 1;
         Stats.Instance.Reset();
     }
 
@@ -16,6 +23,7 @@ public class MainMenu : MonoBehaviour
     public void OnQuitButton() {
         Application.Quit();
         Debug.Log("Quit");
+        Stats.Instance.Save();
     }
 
 }

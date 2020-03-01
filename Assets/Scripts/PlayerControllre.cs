@@ -18,6 +18,7 @@ public class PlayerControllre: MonoBehaviour {
     int _saveHitTime;
     public int GefahrenDamage;
     public GameObject GameOverScript;
+    public GameObject WinCanvas;
 
     [UsedImplicitly]
     void Start() {
@@ -27,6 +28,7 @@ public class PlayerControllre: MonoBehaviour {
         _spawn             = GameObject.FindGameObjectWithTag(TagNames.Spawn);
         _gefahr = GameObject.FindGameObjectWithTag(TagNames.Gefahr);
         transform.position = _spawn.transform.position;
+        Stats.Instance.StartPos = _spawn.transform.position;
         _saveHitTime = HitTime;
     }
 
@@ -91,7 +93,11 @@ public class PlayerControllre: MonoBehaviour {
     [UsedImplicitly]
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == TagNames.Ziel) {
+            WinCanvas.SetActive(true);
+            Time.timeScale = 0;
+            Stats.Instance.Save();
+        }
         if (collision.tag == TagNames.DeathZone)
         {
 
