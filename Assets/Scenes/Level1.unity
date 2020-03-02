@@ -5841,3 +5841,4 @@ MonoBehaviour:
   GefahrenDamage: 25
   GameOverScript: {fileID: 2064193967}
   WinCanvas: {fileID: 1731836611}
+  Barikade: {fileID: 1765658441}

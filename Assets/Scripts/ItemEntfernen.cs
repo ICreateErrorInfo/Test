@@ -13,6 +13,11 @@ public class ItemEntfernen: MonoBehaviour {
     public bool            _insideItem;
     public  TextMeshProUGUI EText;
 
+    private void Awake()
+    {
+
+    }
+
     [UsedImplicitly]
     private void Update() {
         //prüft ob der spieler im Item ist

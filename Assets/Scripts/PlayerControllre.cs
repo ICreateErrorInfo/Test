@@ -19,16 +19,24 @@ public class PlayerControllre: MonoBehaviour {
     public int GefahrenDamage;
     public GameObject GameOverScript;
     public GameObject WinCanvas;
+    public GameObject Barikade;
 
-    [UsedImplicitly]
-    void Start() {
-        // Variablen werden initialisiert
+    private void Awake()
+    {
         _itemEntferner = GameObject.FindGameObjectWithTag(TagNames.ItemEnt);
         _itemJump = GameObject.FindGameObjectWithTag(TagNames.ItemJump);
-        _spawn             = GameObject.FindGameObjectWithTag(TagNames.Spawn);
+        _spawn = GameObject.FindGameObjectWithTag(TagNames.Spawn);
         _gefahr = GameObject.FindGameObjectWithTag(TagNames.Gefahr);
         transform.position = _spawn.transform.position;
         Stats.Instance.StartPos = _spawn.transform.position;
+
+        _itemEntferner.SetActive(Stats.Instance.EntfernerItemIsShown);
+        _itemJump.SetActive(Stats.Instance.JumpItemIsShown);
+        Barikade.SetActive(Stats.Instance.BarikadeIsShown);
+    }
+
+    [UsedImplicitly]
+    void Start() {
         _saveHitTime = HitTime;
     }
 
