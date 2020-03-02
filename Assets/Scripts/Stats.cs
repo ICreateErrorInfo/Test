@@ -61,7 +61,6 @@ public class Stats {
         BarikadeIsShown = (PlayerPrefs.GetInt(nameof(BarikadeIsShown), 0) != 0);
         JumpItemIsShown = (PlayerPrefs.GetInt(nameof(JumpItemIsShown), 0) != 0);
         EntfernerItemIsShown = (PlayerPrefs.GetInt(nameof(EntfernerItemIsShown), 0) != 0);
-
     }
 
     public void Save() {

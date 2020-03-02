@@ -8,19 +8,16 @@ public class Gefahren : MonoBehaviour
     public float xÄnderung;
     public int entfernung;
 
-    void Start()
+    void Awake()
     {
         //nimmt sich die position vom spieler
         xStart = transform.position.x;
-
-        // nimmt die Änderung mal deltaTime
-        xÄnderung *= Time.deltaTime;
     }
 
     void Update()
     {
         //erstellt aus der aktuellen pos. und der änderung ein float
-        float xNeu = transform.position.x + xÄnderung;
+        float xNeu = transform.position.x + xÄnderung * Time.deltaTime;
         //erstellt einen neuen Vektor aus der aktuellen positon und xNeu
         transform.position = new Vector3(xNeu, transform.position.y, 0);
 
